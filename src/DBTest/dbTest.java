@@ -12,30 +12,21 @@ public class dbTest {
 					Scanner sc=new Scanner(System.in);
 					input=sc.nextInt();
 					do{
-					input=sc.nextInt();
-					
-					
+						System.out.print("嗨請選擇你要的功能\n");
+						System.out.print("1查詢  2插入 3修改 4刪除  0離開");
+						input=sc.nextInt();	
 				switch(input){
 					case 1: search();
 					break;
 					case 2: Insert();
 					break;
-					case 3: search();
+					case 3: Update();
 					break;
 					case 4: search();
 					break;
 				}
-				}while(input!=0);
-					
-				
-				
-				
-				
-				
+				}while(input!=0);		
 					}
-		
-	
-
 static void search() {
 	 String url = "jdbc:mysql://localhost:3306/dbtest?serverTimezone=UTC";
 		String username = "root";
@@ -70,19 +61,31 @@ static void Insert() throws SQLException {
 	System.out.print("Test:?");
 	String Test=sc.next();
 	String se="select * from dbtest";
-	
-	
-	
-	
-	
-	 
 	Connection con = DriverManager.getConnection(url,username,password);
 	Statement stmt = con.createStatement();
 	String sql = "INSERT INTO `dbtest`(`number`,`name`,`password`,`Test`) "
             + "VALUES ( "+"null,\""+name+"\""+","+password2+","+Test+")" ;
-	System.out.print(sql);
-
 	stmt.execute(sql);
-	
+}
+static void Update() throws SQLException {
+	String url = "jdbc:mysql://localhost:3306/dbtest?serverTimezone=UTC";
+	String username = "root";
+	String password = "";
+	Scanner sc=new Scanner(System.in);
+	System.out.print("請輸入要修改的人名");
+	String name=sc.next();
+	System.out.print("請輸入要修改的密碼");
+	String password2=sc.next();
+	System.out.print("Test:?");
+	String Test=sc.next();
+	System.out.print("修改之後的人名是?");
+	String name2=sc.next();
+	String sql="UPDATE `dbtest` SET `password`="+password2+",`Test`="+Test+",`name`="+"\""+name2+"\""+" WHERE `name`=\""+name+"\"";
+	System.out.print(sql);		
+
+			
+	Connection con = DriverManager.getConnection(url,username,password);
+	Statement stmt = con.createStatement(); //與資料庫互動
+	stmt.execute(sql);
 }
 }
