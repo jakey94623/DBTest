@@ -2,7 +2,6 @@ package DBTest;
 import java.sql.*;
 import java.util.*;
 public class dbTest {
-	//1
 	public static void main(String[] args) throws SQLException {
 					System.out.print("嗨請選擇你要的功能\n");
 					System.out.print("1查詢  2插入 3修改 4刪除5清空  0離開");
@@ -26,7 +25,7 @@ public class dbTest {
 							break;
 									}
 				   }while(input!=0);
-					sc.close();
+					
 					}
 static void search() {
 	 	String url = "jdbc:mysql://localhost:3306/dbtest?serverTimezone=UTC";
@@ -61,7 +60,7 @@ static void Insert() throws SQLException {
 		Statement stmt = con.createStatement();
 		String sql = "INSERT INTO `dbtest`(`number`,`name`,`password`,`Test`) "+ "VALUES ( "+"null,\""+name+"\""+","+password2+","+Test+")" ;
 		stmt.execute(sql);
-		sc.close();
+	
 }
 static void Update() throws SQLException {
 		String url = "jdbc:mysql://localhost:3306/dbtest?serverTimezone=UTC";
@@ -80,7 +79,7 @@ static void Update() throws SQLException {
 		Connection con = DriverManager.getConnection(url,username,password);
 		Statement stmt = con.createStatement(); //與資料庫互動
 		stmt.execute(sql);
-		sc.close();
+		
 }
 static void Delete() throws SQLException {
 		String url = "jdbc:mysql://localhost:3306/dbtest?serverTimezone=UTC";
@@ -93,7 +92,7 @@ static void Delete() throws SQLException {
 		Connection con = DriverManager.getConnection(url,username,password);
 		Statement stmt = con.createStatement();
 		stmt.execute(sql);
-		sc.close();
+		
 }
 static void Drop() throws SQLException {
 		String url = "jdbc:mysql://localhost:3306/dbtest?serverTimezone=UTC";
