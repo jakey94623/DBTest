@@ -2,7 +2,7 @@ package DBTest;
 import java.sql.*;
 import java.util.*;
 public class dbTest {
-	
+	//1
 	public static void main(String[] args) throws SQLException {
 					System.out.print("嗨請選擇你要的功能\n");
 					System.out.print("1查詢  2插入 3修改 4刪除5清空  0離開");
